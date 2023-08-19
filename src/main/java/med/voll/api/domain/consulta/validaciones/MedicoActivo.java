@@ -4,9 +4,9 @@ import jakarta.validation.ValidationException;
 import med.voll.api.domain.consulta.DatosAgendarConsulta;
 import med.voll.api.domain.medico.MedicoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
-@Service
+@Component
 public class MedicoActivo implements ValidadorDeConsultas {
 
     @Autowired
@@ -19,6 +19,7 @@ public class MedicoActivo implements ValidadorDeConsultas {
             return;
         }
 
+        // VERIFICAR ESTO QUE LA CONSOLA DICE QUE SIEMPRE ES NULL!!!
         var medicoActivo = repository.findActivoById(datos.idMedico());
 
         if (!medicoActivo) {
